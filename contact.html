@@ -63,7 +63,7 @@
 				</div>
 
 				<div class="contact-form">
-					<form id="myForm">
+					<form id="emailForm">
 						<input type="text" name="name" placeholder="Name" required />
 						<input type="email" name="email" placeholder="Email" required />
 						<textarea name="message" placeholder="Type your message here" required></textarea>
@@ -76,22 +76,26 @@
 </html>
 
 <script>
-	const form = document.getElementById("myForm");
+	document.addEventListener("DOMContentLoaded", () => {
+		const form = document.getElementById("emailForm");
 
-	form.addEventListener("submit", (e) => {
-		e.preventDefault();
+		form.addEventListener("submit", (e) => {
+			e.preventDefault();
 
-		const name = form.elements["name"].value;
-		const email = form.elements["email"].value;
-		const message = form.elements["message"].value;
+			const name = form.elements["name"].value;
+			const email = form.elements["email"].value;
+			const message = form.elements["message"].value;
 
-		alert(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
-	});
+			alert(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+		});
 
-	const menuToggle = document.querySelector(".menu-toggle");
-	const navLinks = document.querySelector(".nav-links");
+		const menuToggle = document.querySelector(".menu-toggle");
+		const navLinks = document.querySelector(".nav-links");
 
-	menuToggle.addEventListener("click", () => {
-		navLinks.classList.toggle("active");
+		if (menuToggle && navLinks) {
+			menuToggle.addEventListener("click", () => {
+				navLinks.classList.toggle("active");
+			});
+		}
 	});
 </script>
